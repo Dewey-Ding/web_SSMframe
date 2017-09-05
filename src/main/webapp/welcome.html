@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
+<script>
+    function manageUser() {
+        var storage = window.localStorage;
+        var userName = storage.getItem("userName");
+        if(userName == "admin"){
+            window.location.href="home.html";
+        }else{
+            alert("您无权限！");
+        }
+    }
+</script>
+
+<h1>欢迎登陆！</h1>
+<a href="javascript:void(0)" onclick="manageUser()">用户管理</a>
+</body>
+</html>

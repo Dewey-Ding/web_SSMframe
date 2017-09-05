@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>用户管理</h1>
+<div id="divTable">
+</div>
+
+
+<div >
+    <table>
+        <tr>
+            <td><label>帐号：</label></td>
+            <td>
+                <input name="username" vtype="email" class="mini-textbox"  id="userName" required="true" requiredErrorText="帐号不能为空"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label>密码：</label></td>
+            <td>
+                <input name="pwd" class="mini-password" vtype="minLength:5" id="passWord" required="true" minLengthErrorText="密码不能少于5个字符" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input value="添加" type="button" name="addUser" id="addUser" />
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="assets/js/user/showUser.js"></script>
+<script>
+    getalluser();
+</script>
+
+</body>
+</html>

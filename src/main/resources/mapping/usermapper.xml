@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.godwei.ssmframe.mapper.UserMapper">
+
+    <resultMap id="userMap" type="com.godwei.ssmframe.model.User">
+        <id property="id" column="id" />
+        <result property="userName" column="name"/>
+        <result property="passWord" column="password"/>
+    </resultMap>
+
+    <resultMap id="BaseResultMap" type="com.godwei.ssmframe.model.User">
+        <constructor>
+            <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="userName" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="passWord" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </constructor>
+    </resultMap>
+    <select id="login" parameterType="com.godwei.ssmframe.model.User" resultType="com.godwei.ssmframe.model.User">
+        select * from users where userName=#{userName} and passWord=#{passWord};
+    </select>
+    <select id="getAllUser" resultType="com.godwei.ssmframe.model.User">
+        select id,userName,passWord from users;
+    </select>
+    <delete id="deleteUser" parameterType="java.lang.String">
+        delete from users where userName=#{userName};
+    </delete>
+    <update id="updateUser" parameterType="com.godwei.ssmframe.model.User">
+        update users set passWord=#{passWord} where userName=#{userName};
+    </update>
+    <insert id="addUser" parameterType="com.godwei.ssmframe.model.User">
+        insert into users (userName,passWord) values (#{userName},#{passWord});
+    </insert>
+</mapper>
